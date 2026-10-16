@@ -25,7 +25,7 @@ def init_db():
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     with connection() as db:
-        db.execute("PRAGMA journal_mode=WAL")
+        db.execute("PRAGMA journal_mode=DELETE")
 
         db.executescript("""
             CREATE TABLE IF NOT EXISTS leads (
