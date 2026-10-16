@@ -1647,3 +1647,17 @@
     transition: none;
   }
 }
+
+.product-card__link {
+  display: block;
+  border-radius: 15px;
+}
+
+.product-card:focus-within .product-card__media {
+  background: rgb(57 47 43 / 25%);
+}
+
+.product-card:focus-within .product-card__badge {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}

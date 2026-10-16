@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { parsePhoneNumberFromString } from "libphonenumber-js/max";
 
 import { sendLead } from "../api/leads";
@@ -22,7 +22,7 @@ function parseBelarusPhone(value) {
   return null;
 }
 
-function LeadForm() {
+function LeadForm({ selectedCoffee }) {
   const [values, setValues] = useState({
     name: "",
     phone: "",
@@ -36,7 +36,54 @@ function LeadForm() {
 
   const submitLock = useRef(false);
 
+  const generatedLineRef = useRef("");
+  const appliedSelectionRef = useRef(null);
+
   const isSending = status === "sending";
+
+  useEffect(() => {
+  if (
+    !selectedCoffee ||
+    isSending ||
+    appliedSelectionRef.current === selectedCoffee
+  ) {
+    return;
+  }
+
+  const template =
+    `Выбран кофе: ${selectedCoffee.country} ` +
+    `${selectedCoffee.name} · ${selectedCoffee.badge} · ` +
+    `${selectedCoffee.price} BYN.`;
+
+  const previousTemplate = generatedLineRef.current;
+
+  setValues((previous) => {
+    let userComment = previous.comment;
+
+    if (
+      previousTemplate &&
+      userComment.startsWith(previousTemplate)
+    ) {
+      userComment = userComment
+        .slice(previousTemplate.length)
+        .replace(/^\r?\n/, "");
+    }
+
+    return {
+      ...previous,
+      interest: "order",
+      comment: userComment
+        ? `${template}\n${userComment}`
+        : template,
+    };
+  });
+
+  generatedLineRef.current = template;
+  appliedSelectionRef.current = selectedCoffee;
+
+  setStatus("idle");
+  setMessage("");
+}, [selectedCoffee, isSending]);
 
   const interestIndex = interests.findIndex(
     (interest) => interest.value === values.interest
@@ -71,6 +118,10 @@ function LeadForm() {
   }
 
   async function handleSubmit(event) {
+    if (values.comment.length > 1000) {
+        nextErrors.comment =
+    "Комментарий вместе с выбранным кофе превышает 1000 символов. Немного сократите его.";
+    }
     event.preventDefault();
 
     if (submitLock.current) return;
@@ -296,6 +347,10 @@ function LeadForm() {
           </div>
 
           <textarea
+            aria-invalid={Boolean(errors.comment)}
+                aria-describedby={
+                errors.comment ? "lead-comment-error" : undefined
+            }
             className="lead-form__textarea"
             id="lead-comment"
             name="comment"
@@ -307,6 +362,15 @@ function LeadForm() {
             }}
             disabled={isSending}
           />
+          {errors.comment && (
+            <p
+                className="lead-form__error"
+                id="lead-comment-error"
+                role="alert"
+            >
+                {errors.comment}
+            </p>
+            )}
         </div>
 
         {status === "error" && (

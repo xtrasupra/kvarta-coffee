@@ -4,7 +4,7 @@ import { products } from "../data/products";
 import ProductCard from "./ProductCard";
 import CoffeeFilters from "./CoffeeFilters";
 
-function Catalog() {
+function Catalog({ onSelectCoffee }) {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const visibleProducts =
@@ -39,7 +39,10 @@ function Catalog() {
       <ul className="catalog__grid">
         {visibleProducts.map((product) => (
           <li key={product.id}>
-            <ProductCard product={product} />
+            <ProductCard
+            product={product}
+            onSelectCoffee={onSelectCoffee}
+            />
           </li>
         ))}
       </ul>

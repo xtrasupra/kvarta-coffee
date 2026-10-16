@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Freshness from "./components/Freshness";
@@ -10,6 +12,12 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
+  const [selectedCoffee, setSelectedCoffee] = useState(null);
+
+  function selectCoffee(product) {
+    setSelectedCoffee({ ...product });
+  }
+
   return (
     <div className="page" id="top">
       <Header />
@@ -17,10 +25,13 @@ function App() {
       <main>
         <Hero />
         <Freshness />
-        <Catalog />
+
+        <Catalog onSelectCoffee={selectCoffee} />
+
         <Subscription />
         <About />
-        <Contacts />
+
+        <Contacts selectedCoffee={selectedCoffee} />
       </main>
 
       <Footer />
