@@ -1192,3 +1192,458 @@
     transition: none;
   }
 }
+
+/* Доставка и контакты */
+
+.contacts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: 40px;
+  min-height: 500px;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgb(57 47 43 / 10%);
+  scroll-margin-top: 20px;
+}
+
+.contacts__copy {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 388px;
+  min-height: 460px;
+}
+
+.contacts__eyebrow {
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.contacts__title {
+  max-width: 310px;
+  margin-top: 40px;
+  font-size: 32px;
+  font-weight: 400;
+  font-variation-settings: "wght" 410, "wdth" 132;
+  line-height: 38px;
+}
+
+.contacts__title span {
+  display: block;
+}
+
+.contacts__info {
+  display: grid;
+  gap: 20px;
+  max-width: 297px;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.contacts__item h3 {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+}
+
+.contacts__item p,
+.contacts__item address {
+  margin-top: 5px;
+  font-size: 10px;
+  font-weight: 100;
+  font-style: normal;
+  line-height: 12px;
+}
+
+.contacts__mobile-break {
+  display: none;
+}
+
+.contacts__note {
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+}
+
+/* Форма */
+
+.lead-form {
+  min-width: 0;
+  padding: 40px;
+  border-radius: 15px;
+  background: var(--color-paper);
+}
+
+.lead-form__title {
+  font-size: 32px;
+  font-weight: 400;
+  font-variation-settings: "wght" 410, "wdth" 132;
+  line-height: 38px;
+}
+
+.lead-form__fields {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.lead-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.lead-form__field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.lead-form__contact-label {
+  display: none;
+}
+
+.lead-form__input,
+.lead-form__textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #392f2b;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--color-ink);
+  font-weight: 300;
+}
+
+.lead-form__input {
+  height: 45px;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.lead-form__input::placeholder {
+  color: var(--color-ink);
+  opacity: 1;
+}
+
+.lead-form__input:focus-visible,
+.lead-form__textarea:focus-visible {
+  outline: 2px solid #392f2b;
+  outline-offset: 3px;
+}
+
+.lead-form__input[aria-invalid="true"] {
+  border-color: #9e4738;
+}
+
+.lead-form__phone-hint {
+  display: none;
+}
+
+/* Выбор интереса */
+
+.lead-form__interest {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.lead-form__interest legend {
+  margin-bottom: 20px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.lead-form__choices {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 276px;
+  max-width: 100%;
+  border: 0.5px solid #392f2b;
+  border-radius: 50px;
+}
+
+.lead-form__choice-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% / 3);
+  height: 100%;
+  border-radius: 50px;
+  background: var(--color-ink);
+  pointer-events: none;
+
+  transform: translateX(calc(var(--choice-index) * 100%));
+  transition: transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.lead-form__choice {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.lead-form__radio {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.lead-form__choice-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 0 4px;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+  transition: color 180ms ease;
+}
+
+.lead-form__radio:checked + .lead-form__choice-label {
+  color: var(--color-paper);
+}
+
+.lead-form__radio:focus-visible + .lead-form__choice-label {
+  outline: 2px solid #392f2b;
+  outline-offset: 3px;
+}
+
+/* Комментарий и отправка */
+
+.lead-form__comment {
+  display: grid;
+  gap: 10px;
+}
+
+.lead-form__comment-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lead-form__comment-heading > span {
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+}
+
+.lead-form__textarea {
+  height: 41px;
+  min-height: 41px;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 12px;
+  resize: vertical;
+}
+
+.lead-form__textarea::placeholder {
+  color: rgb(57 47 43 / 45%);
+  opacity: 1;
+}
+
+.lead-form__submit {
+  width: 100%;
+  min-height: 37px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 50px;
+  background: var(--color-ink);
+  color: white;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+  cursor: pointer;
+  transition: opacity 180ms ease;
+}
+
+.lead-form__submit:hover {
+  opacity: 0.85;
+}
+
+.lead-form__submit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.lead-form__input:disabled,
+.lead-form__textarea:disabled {
+  opacity: 0.6;
+}
+
+.lead-form__error {
+  color: #9e4738;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.lead-form__hint {
+  display: none;
+}
+
+.lead-form__success-text {
+  margin-top: 20px;
+  line-height: 20px;
+}
+
+/* Подвал */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.footer__caption {
+  display: none;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 960px) {
+  .contacts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .contacts__copy {
+    max-width: none;
+    min-height: 0;
+  }
+
+  .contacts__info {
+    max-width: none;
+    margin-top: 40px;
+    padding-top: 0;
+  }
+
+  .contacts__item h3 {
+    line-height: 20px;
+  }
+
+  .contacts__item p,
+  .contacts__item address {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .contacts__hours-divider,
+  .contacts__note {
+    display: none;
+  }
+
+  .contacts__mobile-break {
+    display: initial;
+  }
+
+  .lead-form {
+    width: 100%;
+    max-width: 460px;
+    padding: 20px;
+  }
+
+  .lead-form__row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lead-form__contact-label {
+    display: block;
+    line-height: 20px;
+  }
+
+  .lead-form__input {
+    padding-inline: 20px;
+  }
+
+  .lead-form__phone-hint {
+    display: block;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 16px;
+  }
+
+  .lead-form__interest legend {
+    margin-bottom: 8px;
+    line-height: 20px;
+  }
+
+  .lead-form__choices {
+    width: 100%;
+    border-width: 1px;
+  }
+
+  .lead-form__choice-label {
+    min-height: 44px;
+  }
+
+  .lead-form__comment {
+    gap: 8px;
+  }
+
+  .lead-form__comment-heading {
+    line-height: 20px;
+  }
+
+  .lead-form__textarea {
+    height: 80px;
+    min-height: 80px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .lead-form__submit {
+    min-height: 44px;
+    padding-block: 12px;
+    border-radius: 5px;
+    line-height: 20px;
+  }
+
+  .lead-form__hint {
+    display: block;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 16px;
+  }
+
+  .footer {
+    padding-top: 20px;
+    border-top: 1px solid rgb(57 47 43 / 25%);
+  }
+
+  .footer__caption {
+    display: block;
+    font-size: 12px;
+    font-weight: 100;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 359px) {
+  .contacts__title,
+  .lead-form__title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lead-form__choice-track,
+  .lead-form__choice-label,
+  .lead-form__submit {
+    transition: none;
+  }
+}

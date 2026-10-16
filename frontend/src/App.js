@@ -4,6 +4,8 @@ import Freshness from "./components/Freshness";
 import Catalog from "./components/Catalog";
 import Subscription from "./components/Subscription";
 import About from "./components/About";
+import Contacts from "./components/Contacts";
+import Footer from "./components/Footer";
 
 import "./App.css";
 
@@ -18,7 +20,10 @@ function App() {
         <Catalog />
         <Subscription />
         <About />
+        <Contacts />
       </main>
+
+      <Footer />
     </div>
   );
 }

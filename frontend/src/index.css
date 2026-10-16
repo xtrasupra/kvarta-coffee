@@ -61,3 +61,28 @@ img {
   outline: 2px solid var(--color-ink);
   outline-offset: 4px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #392f2b;
+  color: #f4f0e6;
+}
+
+input,
+textarea {
+  caret-color: #392f2b;
+}
+
+:focus-visible {
+  outline: 2px solid #392f2b;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
