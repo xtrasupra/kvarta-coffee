@@ -1,11 +1,17 @@
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+
 import "./App.css";
 
 function App() {
   return (
-    <main>
-      <h1>Кварта</h1>
-      <p>Свежая обжарка кофе в Минске.</p>
-    </main>
+    <div className="page" id="top">
+      <Header />
+
+      <main>
+        <Hero />
+      </main>
+    </div>
   );
 }
 
