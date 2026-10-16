@@ -792,3 +792,403 @@
     line-height: 12px;
   }
 }
+
+/* Плавное состояние карточки */
+
+.product-card__media {
+  background: rgb(57 47 43 / 10%);
+  transition: background-color 300ms ease;
+}
+
+.product-card__badge {
+  background: var(--color-ink);
+  color: var(--color-paper);
+
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+.product-card:hover .product-card__media {
+  background: rgb(57 47 43 / 25%);
+}
+
+.product-card:hover .product-card__badge {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+/* Скользящая подложка фильтров */
+
+.catalog__filters {
+  position: relative;
+  isolation: isolate;
+}
+
+.catalog__filter-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 50px;
+  background: var(--color-ink);
+  pointer-events: none;
+
+  transition:
+    transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.catalog__filter,
+.catalog__filter[aria-pressed="true"] {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: var(--color-ink);
+  transition: color 180ms ease;
+}
+
+.catalog__filter[data-preview="true"] {
+  color: var(--color-paper);
+}
+
+/* Общая типографика новых блоков */
+
+.subscription__eyebrow,
+.about__eyebrow {
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.subscription__title,
+.about__title {
+  font-size: 32px;
+  font-weight: 400;
+  font-variation-settings: "wght" 410, "wdth" 132;
+  line-height: 38px;
+}
+
+.subscription__title span,
+.about__title span {
+  display: block;
+}
+
+/* Подписка */
+
+.subscription {
+  position: relative;
+  min-height: 500px;
+  margin-top: 40px;
+  padding: 20px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: rgb(57 47 43 / 10%);
+  scroll-margin-top: 20px;
+}
+
+.subscription__content {
+  position: relative;
+  z-index: 1;
+  max-width: 388px;
+}
+
+.subscription__eyebrow strong {
+  font-weight: 600;
+}
+
+.subscription__title {
+  margin-top: 20px;
+}
+
+.subscription__title > span + span {
+  margin-top: 5px;
+}
+
+.subscription__mobile-break {
+  display: none;
+}
+
+.subscription__description {
+  margin-top: 40px;
+}
+
+.subscription__description span {
+  display: block;
+}
+
+.subscription__description span + span {
+  margin-top: 5px;
+}
+
+.subscription__offer {
+  margin-top: 40px;
+}
+
+.subscription__price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 32px;
+  font-weight: 400;
+  font-variation-settings: "wght" 410, "wdth" 132;
+  line-height: 38px;
+}
+
+.subscription__period {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.subscription__link {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 182px;
+  min-height: 27px;
+  margin-top: 20px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background: var(--color-ink);
+  color: white;
+  font-weight: 100;
+  line-height: 17px;
+}
+
+.subscription__label {
+  flex: 1;
+}
+
+.subscription__link:is(:hover, :focus-visible) .hero__icon-bean {
+  opacity: 0;
+  transform: translateY(-130%);
+}
+
+.subscription__link:is(:hover, :focus-visible) .hero__icon-cup {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.subscription__image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 578px;
+  height: 431px;
+  object-fit: cover;
+  object-position: center bottom;
+  filter: grayscale(1);
+}
+
+/* О нас */
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 388px) 366px;
+  justify-content: space-between;
+  column-gap: 40px;
+  row-gap: 40px;
+  margin-top: 40px;
+  scroll-margin-top: 20px;
+}
+
+.about__title {
+  margin-top: 40px;
+}
+
+.about__description {
+  margin-top: 20px;
+}
+
+.about__schedule {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  gap: 10px;
+
+  margin: 32.5px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.about__step {
+  width: 178px;
+}
+
+.about__step:nth-child(odd) {
+  align-self: flex-end;
+}
+
+.about__day {
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+}
+
+.about__step-content {
+  margin-top: 10px;
+}
+
+.about__step-title {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 17px;
+}
+
+.about__step-description {
+  margin-top: 10px;
+  font-size: 10px;
+  font-weight: 100;
+  line-height: 12px;
+}
+
+.about__caption {
+  grid-column: 1;
+  font-size: 10px;
+  font-weight: 100;
+  font-style: italic;
+  line-height: 12px;
+}
+
+/* Промежуточные размеры */
+
+@media (max-width: 1100px) {
+  .subscription__image {
+    width: 45%;
+    height: auto;
+    aspect-ratio: 578 / 431;
+  }
+}
+
+/* Мобильная версия */
+
+@media (max-width: 960px) {
+  .subscription {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .subscription__content {
+    max-width: none;
+  }
+
+  .subscription__title > span + span {
+    margin-top: 0;
+  }
+
+  .subscription__mobile-break {
+    display: initial;
+  }
+
+  .subscription__description {
+    line-height: 20px;
+  }
+
+  .subscription__description span + span {
+    margin-top: 0;
+  }
+
+  .subscription__price {
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .subscription__period {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .subscription__link {
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 12px 20px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .subscription__link .hero__icon {
+    display: none;
+  }
+
+  .subscription__image {
+    position: static;
+    width: 100%;
+    height: 290px;
+    aspect-ratio: auto;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .about__description {
+    margin-top: 40px;
+    line-height: 20px;
+  }
+
+  .about__schedule {
+    align-self: stretch;
+    gap: 20px;
+    margin: 0;
+  }
+
+  .about__step {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+
+  .about__day {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .about__step-content {
+    margin-top: 0;
+  }
+
+  .about__step-title {
+    line-height: 20px;
+  }
+
+  .about__step-description {
+    margin-top: 5px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .about__caption {
+    font-size: 12px;
+    font-style: normal;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 359px) {
+  .subscription__title,
+  .about__title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+}
+
+/* Уменьшение анимаций по настройке системы */
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card__media,
+  .product-card__badge,
+  .catalog__filter,
+  .catalog__filter-indicator {
+    transition: none;
+  }
+}

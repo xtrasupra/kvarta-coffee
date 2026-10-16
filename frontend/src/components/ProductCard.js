@@ -1,10 +1,6 @@
 function ProductCard({ product }) {
-  const className = [
-    "product-card",
-    product.tone === "dark" ? "product-card--dark" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+
+  const className = "product-card";
 
   return (
     <article className={className}>

@@ -2,13 +2,7 @@ import { useState } from "react";
 
 import { products } from "../data/products";
 import ProductCard from "./ProductCard";
-
-const filters = [
-  { id: "all", label: "Весь кофе", shortLabel: "Весь кофе" },
-  { id: "espresso", label: "Под эспрессо", shortLabel: "Эспрессо" },
-  { id: "filter", label: "Для фильтра", shortLabel: "Фильтр" },
-  { id: "drips", label: "Дрипы", shortLabel: "Дрипы" },
-];
+import CoffeeFilters from "./CoffeeFilters";
 
 function Catalog() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -37,29 +31,10 @@ function Catalog() {
         </p>
       </div>
 
-      <div
-        className="catalog__filters"
-        role="group"
-        aria-label="Способ приготовления кофе"
-      >
-        {filters.map((filter) => (
-          <button
-            className="catalog__filter"
-            key={filter.id}
-            type="button"
-            aria-pressed={activeCategory === filter.id}
-            onClick={() => setActiveCategory(filter.id)}
-          >
-            <span className="catalog__filter-desktop">
-              {filter.label}
-            </span>
-
-            <span className="catalog__filter-mobile">
-              {filter.shortLabel}
-            </span>
-          </button>
-        ))}
-      </div>
+      <CoffeeFilters
+        value={activeCategory}
+        onChange={setActiveCategory}
+      />
 
       <ul className="catalog__grid">
         {visibleProducts.map((product) => (
