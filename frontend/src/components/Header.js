@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 
 import mark from "../assets/kvarta-mark.svg";
 import arrow from "../assets/header-arrow.svg";
+import bean from "../assets/hero-arrow.svg";
 
 const navigation = [
   { label: "Кофе", href: "#coffee" },
@@ -119,7 +120,16 @@ function Header() {
 
         <a className="header__order" href="#contacts">
           <span>Хочу кофе</span>
-          <img src={arrow} alt="" />
+
+          <span className="hero__icon" aria-hidden="true">
+            <span className="hero__icon-layer hero__icon-bean">
+              <img src={bean} alt="" />
+            </span>
+
+            <span className="hero__icon-layer hero__icon-cup">
+              <img src={arrow} alt="" />
+            </span>
+          </span>
         </a>
 
         <button
