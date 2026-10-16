@@ -12,10 +12,19 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
-  const [selectedCoffee, setSelectedCoffee] = useState(null);
+  const [orderRequest, setOrderRequest] = useState(null);
 
   function selectCoffee(product) {
-    setSelectedCoffee({ ...product });
+    setOrderRequest({
+      type: "coffee",
+      product,
+    });
+  }
+
+  function selectSubscription() {
+    setOrderRequest({
+      type: "subscription",
+    });
   }
 
   return (
@@ -28,10 +37,13 @@ function App() {
 
         <Catalog onSelectCoffee={selectCoffee} />
 
-        <Subscription />
+        <Subscription
+          onSelectSubscription={selectSubscription}
+        />
+
         <About />
 
-        <Contacts selectedCoffee={selectedCoffee} />
+        <Contacts orderRequest={orderRequest} />
       </main>
 
       <Footer />

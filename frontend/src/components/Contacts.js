@@ -1,6 +1,6 @@
 import LeadForm from "./LeadForm";
 
-function Contacts({ selectedCoffee }) {
+function Contacts({ orderRequest }) {
   return (
     <section
       className="contacts"
@@ -52,7 +52,7 @@ function Contacts({ selectedCoffee }) {
         </div>
       </div>
 
-      <LeadForm selectedCoffee={selectedCoffee} />
+      <LeadForm orderRequest={orderRequest} />
     </section>
   );
 }

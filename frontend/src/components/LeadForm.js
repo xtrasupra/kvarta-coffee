@@ -22,7 +22,11 @@ function parseBelarusPhone(value) {
   return null;
 }
 
-function LeadForm({ selectedCoffee }) {
+const SUBSCRIPTION_TEMPLATE =
+  "Хочу оформить подписку: 2 пачки по 250 г каждый месяц · " +
+  "54 BYN/мес. Доставка бесплатно.";
+
+function LeadForm({ orderRequest }) {
   const [values, setValues] = useState({
     name: "",
     phone: "",
@@ -36,54 +40,71 @@ function LeadForm({ selectedCoffee }) {
 
   const submitLock = useRef(false);
 
-  const generatedLineRef = useRef("");
-  const appliedSelectionRef = useRef(null);
+  const appliedRequestRef = useRef(null);
 
   const isSending = status === "sending";
 
-  useEffect(() => {
+useEffect(() => {
   if (
-    !selectedCoffee ||
+    !orderRequest ||
     isSending ||
-    appliedSelectionRef.current === selectedCoffee
+    appliedRequestRef.current === orderRequest
   ) {
     return;
   }
 
-  const template =
-    `Выбран кофе: ${selectedCoffee.country} ` +
-    `${selectedCoffee.name} · ${selectedCoffee.badge} · ` +
-    `${selectedCoffee.price} BYN.`;
-
-  const previousTemplate = generatedLineRef.current;
-
   setValues((previous) => {
-    let userComment = previous.comment;
-
-    if (
-      previousTemplate &&
-      userComment.startsWith(previousTemplate)
-    ) {
-      userComment = userComment
-        .slice(previousTemplate.length)
-        .replace(/^\r?\n/, "");
+    if (orderRequest.type === "subscription") {
+      return {
+        ...previous,
+        interest: "subscription",
+        comment: SUBSCRIPTION_TEMPLATE,
+      };
     }
+
+    const product = orderRequest.product;
+
+    const template =
+      `Выбран кофе: ${product.country} ${product.name} · ` +
+      `${product.badge} · ${product.price} BYN.`;
+
+    let comment = previous.comment;
+
+    // Убираем автоматический шаблон подписки,
+    // если человек вернулся к разовому заказу.
+    if (comment === SUBSCRIPTION_TEMPLATE) {
+      comment = "";
+    } else if (comment.startsWith(`${SUBSCRIPTION_TEMPLATE}\n`)) {
+      comment = comment
+        .slice(SUBSCRIPTION_TEMPLATE.length)
+        .replace(/^\r?\n(?:\r?\n)?/, "");
+    }
+
+    const alreadyAdded = comment
+      .split(/\r?\n/)
+      .some((line) => line.trim() === template);
 
     return {
       ...previous,
       interest: "order",
-      comment: userComment
-        ? `${template}\n${userComment}`
-        : template,
+      comment: alreadyAdded
+        ? comment
+        : [comment.trimEnd(), template]
+            .filter(Boolean)
+            .join("\n\n"),
     };
   });
 
-  generatedLineRef.current = template;
-  appliedSelectionRef.current = selectedCoffee;
+  appliedRequestRef.current = orderRequest;
 
   setStatus("idle");
   setMessage("");
-}, [selectedCoffee, isSending]);
+
+  setErrors((previous) => ({
+    ...previous,
+    comment: undefined,
+  }));
+}, [orderRequest, isSending]);
 
   const interestIndex = interests.findIndex(
     (interest) => interest.value === values.interest

@@ -2,7 +2,7 @@ import photo from "../assets/subscription.png";
 import bean from "../assets/hero-arrow.svg";
 import cup from "../assets/header-arrow.svg";
 
-function Subscription() {
+function Subscription({ onSelectSubscription }) {
   return (
     <section
       className="subscription"
@@ -39,7 +39,11 @@ function Subscription() {
             <span className="subscription__period">/ месяц</span>
           </p>
 
-          <a className="subscription__link" href="#contacts">
+          <a
+  className="subscription__link"
+  href="#contacts"
+  onClick={onSelectSubscription}
+>
             <span className="subscription__label">
               Хочу подписку
             </span>
