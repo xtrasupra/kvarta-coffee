@@ -68,6 +68,7 @@ SQLite я оставил для небольшого тестового прое
 | Сервер возвращал `Disallowed CORS origin` | ИИ выполнил OPTIONS с origin GitHub Pages, добавил `https://xtrasupra.github.io` в серверное окружение и перезапустил приложение. |
 | Длинный комментарий обращался к переменной до объявления | ИИ прочитал `LeadForm`, перенёс проверку после создания объекта ошибок и добавил регрессионный тест. |
 | Управление браузером не давало достоверно прочитать логи | Попытки инструмента остановились; я передал журнал вручную, затем предоставил доступ через API хостинга. ИИ не выдавал неудачные попытки за выполненную проверку. |
+| В `.env.example` оказался настоящий токен Telegram | После уведомления GitGuardian я поручил ИИ проверить все ветки и историю. Токен перевыпущен через BotFather, настройки обновлены локально и на сервере, секрет удалён из истории, а `.env.example` оставлен пустым шаблоном. Предыдущая проверка документов ИИ пропустила этот файл; одного `.gitignore` для уже отслеживаемых файлов недостаточно. |
 
 Первоначальные предложения ИИ я не считаю гарантией корректности. Важным оказалось проверять поведение в собранном сайте и ответы реального API, а не только отсутствие ошибки компиляции.
 
@@ -92,10 +93,10 @@ SQLite я оставил для небольшого тестового прое
 | Контакты и валидация формы | [`3524d73`](https://github.com/xtrasupra/kvarta-coffee/commit/3524d73) |
 | Выбор кофе и favicon | [`e33d78d`](https://github.com/xtrasupra/kvarta-coffee/commit/e33d78d) |
 | Несколько сортов и сценарий подписки | [`0833f25`](https://github.com/xtrasupra/kvarta-coffee/commit/0833f25) |
-| FastAPI, SQLite и Telegram | [`49a01e4`](https://github.com/xtrasupra/kvarta-coffee/commit/49a01e4) |
-| Совместимость SQLite с хостингом | [`0cbfd80`](https://github.com/xtrasupra/kvarta-coffee/commit/0cbfd80) |
-| Адрес API и GitHub Pages | [`1e4de5d`](https://github.com/xtrasupra/kvarta-coffee/commit/1e4de5d) |
-| Диагностика и исправления, выполненные ИИ | [`325a310`](https://github.com/xtrasupra/kvarta-coffee/commit/325a310) |
-| Результаты живой проверки | [`ae7b712`](https://github.com/xtrasupra/kvarta-coffee/commit/ae7b712) |
+| FastAPI, SQLite и Telegram | [`c3438c2`](https://github.com/xtrasupra/kvarta-coffee/commit/c3438c2) |
+| Совместимость SQLite с хостингом | [`88e5033`](https://github.com/xtrasupra/kvarta-coffee/commit/88e5033) |
+| Адрес API и GitHub Pages | [`e3b6b52`](https://github.com/xtrasupra/kvarta-coffee/commit/e3b6b52) |
+| Диагностика и исправления, выполненные ИИ | [`09a5709`](https://github.com/xtrasupra/kvarta-coffee/commit/09a5709) |
+| Результаты живой проверки | [`9fba36d`](https://github.com/xtrasupra/kvarta-coffee/commit/9fba36d) |
 
 [Реальные выдержки диалога](ai-dialogue.md) · [Вся история](https://github.com/xtrasupra/kvarta-coffee/commits/main/)

@@ -78,7 +78,7 @@ cd frontend
 npm run deploy
 ```
 
-Команда собирает сайт и публикует `build` в `gh-pages`. В GitHub Pages выбраны `Deploy from a branch`, ветка `gh-pages`, папка `/ (root)`. Python-код на Pages не запускается.
+Команда собирает сайт и публикует `build` в `gh-pages`. Маска `--remove` дополнительно удаляет из ветки старые `.env`, `.env.*` и `.gitignore`: стандартная маска утилиты пропускает скрытые файлы. Серверные настройки не должны попадать в ветку сайта. В GitHub Pages выбраны `Deploy from a branch`, ветка `gh-pages`, папка `/ (root)`. Python-код на Pages не запускается.
 
 ## PythonAnywhere
 
