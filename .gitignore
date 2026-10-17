@@ -1,8 +1,8 @@
-backend/.env
+**/.env
+**/.env.*
+!**/.env.example
+!frontend/.env.production
 backend/.venv/
 backend/data/
 **/__pycache__/
 *.pyc
-frontend/.env.local
-frontend/.env.development.local
-**/.env.*.local
