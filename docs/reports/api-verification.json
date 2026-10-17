@@ -1,0 +1,37 @@
+{
+  "checked_at": 1792197813.0315392,
+  "site": "https://xtrasupra.github.io/kvarta-coffee/",
+  "api": "https://xtrasupra.pythonanywhere.com",
+  "deployed_bundle": "main.fb4f7765.js",
+  "production_api_url": true,
+  "cors_origin": "https://xtrasupra.github.io",
+  "concurrent_requests": {
+    "requests": 2,
+    "new_leads": 1,
+    "duplicates": 1
+  },
+  "invalid_phone_status": 422,
+  "persisted_after_restart": true,
+  "duplicate_after_restart": true,
+  "database": {
+    "checked_at": 1792197813.0315392,
+    "test_lead_count": 1,
+    "test_leads": [
+      {
+        "id": 1,
+        "telegram_sent": true,
+        "telegram_attempts": 1,
+        "telegram_last_error": null,
+        "tags": {
+          "utm_source": "codex-test",
+          "utm_campaign": "deployment-check",
+          "utm_content": "simultaneous-submit"
+        }
+      }
+    ]
+  },
+  "frontend_tests_passed": 2,
+  "production_build_passed": true,
+  "browser_visual_check": "Tool navigation timed out; not completed",
+  "source_commit": "325a310"
+}
