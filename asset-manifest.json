@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/kvarta-coffee/static/css/main.b30c1f73.css",
+    "main.js": "/kvarta-coffee/static/js/main.e0ab497d.js",
+    "static/media/subscription.png": "/kvarta-coffee/static/media/subscription.03df00f2355289a262b6.png",
+    "static/media/hero.png": "/kvarta-coffee/static/media/hero.9ee0b5e80b7bad9563e7.png",
+    "static/media/ethiopia.png": "/kvarta-coffee/static/media/ethiopia.1f7c7ca5c07a198401a9.png",
+    "static/media/colombia.png": "/kvarta-coffee/static/media/colombia.8411a74444881ed11109.png",
+    "static/media/drips.png": "/kvarta-coffee/static/media/drips.3c023547e463e5aa2c16.png",
+    "static/media/brazil.png": "/kvarta-coffee/static/media/brazil.681e572d7e16549c9c9e.png",
+    "static/media/header-arrow.svg": "/kvarta-coffee/static/media/header-arrow.53345ffd663694de09e0b43831881dc7.svg",
+    "static/media/hero-arrow.svg": "/kvarta-coffee/static/media/hero-arrow.6fa06824e6d7e02aad0467ae3699084f.svg",
+    "index.html": "/kvarta-coffee/index.html",
+    "static/media/kvarta-mark.svg": "/kvarta-coffee/static/media/kvarta-mark.d762a448e7541cdf6522871d30c5f979.svg",
+    "main.b30c1f73.css.map": "/kvarta-coffee/static/css/main.b30c1f73.css.map",
+    "main.e0ab497d.js.map": "/kvarta-coffee/static/js/main.e0ab497d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b30c1f73.css",
+    "static/js/main.e0ab497d.js"
+  ]
+}
