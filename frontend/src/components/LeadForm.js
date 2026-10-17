@@ -139,16 +139,17 @@ useEffect(() => {
   }
 
   async function handleSubmit(event) {
-    if (values.comment.length > 1000) {
-        nextErrors.comment =
-    "Комментарий вместе с выбранным кофе превышает 1000 символов. Немного сократите его.";
-    }
     event.preventDefault();
 
     if (submitLock.current) return;
 
     const nextErrors = {};
     const phone = parseBelarusPhone(values.phone);
+
+    if (values.comment.length > 1000) {
+      nextErrors.comment =
+        "Комментарий вместе с выбранным кофе превышает 1000 символов. Немного сократите его.";
+    }
 
     if (!values.name.trim()) {
       nextErrors.name = "Укажите, как к вам обращаться.";

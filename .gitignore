@@ -5,3 +5,4 @@ backend/data/
 *.pyc
 frontend/.env.local
 frontend/.env.development.local
+**/.env.*.local
