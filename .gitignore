@@ -4,3 +4,4 @@ backend/data/
 **/__pycache__/
 *.pyc
 frontend/.env.local
+frontend/.env.development.local
