@@ -65,4 +65,3 @@
 | Telegram | [@kvarta_applicationsbot](https://t.me/kvarta_applicationsbot) — уведомления, адресат задан на сервере |
 | Проверка API | [/api/health](https://xtrasupra.pythonanywhere.com/api/health) |
 | Тестовое задание | [Страница](https://tz.vitai.world/) · [PDF](https://tz.vitai.world/kvarta-brief.pdf) |
-| Сообщение для отправки | [Подготовленный текст письма](docs/submission-message.md) |
