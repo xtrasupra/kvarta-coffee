@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/kvarta-coffee/static/css/main.b30c1f73.css",
-    "main.js": "/kvarta-coffee/static/js/main.e0ab497d.js",
+    "main.js": "/kvarta-coffee/static/js/main.fb4f7765.js",
     "static/media/subscription.png": "/kvarta-coffee/static/media/subscription.03df00f2355289a262b6.png",
     "static/media/hero.png": "/kvarta-coffee/static/media/hero.9ee0b5e80b7bad9563e7.png",
     "static/media/ethiopia.png": "/kvarta-coffee/static/media/ethiopia.1f7c7ca5c07a198401a9.png",
@@ -13,10 +13,10 @@
     "index.html": "/kvarta-coffee/index.html",
     "static/media/kvarta-mark.svg": "/kvarta-coffee/static/media/kvarta-mark.d762a448e7541cdf6522871d30c5f979.svg",
     "main.b30c1f73.css.map": "/kvarta-coffee/static/css/main.b30c1f73.css.map",
-    "main.e0ab497d.js.map": "/kvarta-coffee/static/js/main.e0ab497d.js.map"
+    "main.fb4f7765.js.map": "/kvarta-coffee/static/js/main.fb4f7765.js.map"
   },
   "entrypoints": [
     "static/css/main.b30c1f73.css",
-    "static/js/main.e0ab497d.js"
+    "static/js/main.fb4f7765.js"
   ]
 }
